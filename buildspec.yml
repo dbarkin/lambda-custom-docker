@@ -1,3 +1,4 @@
+version: 0.2
 phases:
   install:
     runtime-versions:
@@ -14,12 +15,12 @@ phases:
       - echo Building the Docker image...
       - ls
       - cd app
-      - docker build -t cf-demo:$CODEBUILD_BUILD_NUMBER .
+      - docker build -t cf-demo:1 .
       - docker container ls
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.ca-central-1.amazonaws.com
-      - docker tag cf-demo:$CODEBUILD_BUILD_NUMBER aws_account_id.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
-      - docker push aws_account_id.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
+      - aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 234130772191.dkr.ecr.ca-central-1.amazonaws.com
+      - docker tag cf-demo:1 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:1
+      - docker push 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:1
