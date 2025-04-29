@@ -20,6 +20,6 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.us-east-1.amazonaws.com
-      - docker tag cf-demo:$CODEBUILD_BUILD_NUMBER aws_account_id.dkr.ecr.us-east-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
-      - docker push aws_account_id.dkr.ecr.us-east-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
+      - aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.ca-central-1.amazonaws.com
+      - docker tag cf-demo:$CODEBUILD_BUILD_NUMBER aws_account_id.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
+      - docker push aws_account_id.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:$CODEBUILD_BUILD_NUMBER
