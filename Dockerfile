@@ -6,11 +6,11 @@ COPY requirements.txt  ${LAMBDA_TASK_ROOT}
 #COPY mongodb-enterprise-8.0.repo /etc/yum.repos.d/mongodb-enterprise-8.0.repo
 # install dependencies
 #RUN yum install -y mongodb-atlas
-RUN dnf install tar
-RUN curl -O https://fastdl.mongodb.org/mongocli/mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
-RUN tar -zxvf mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
-RUN cp mongodb-atlas-cli_1.41.2_linux_x86_64/bin/atlas /usr/local/bin/atlas
-RUN /usr/local/bin/atlas
+RUN dnf install mongodb-atlas
+#RUN curl -O https://fastdl.mongodb.org/mongocli/mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
+#RUN tar -zxvf mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
+#RUN cp mongodb-atlas-cli_1.41.2_linux_x86_64/bin/atlas /usr/local/bin/atlas
+RUN atlas
 
 RUN pip3 install --user -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
 
