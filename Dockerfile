@@ -12,7 +12,6 @@ RUN dnf -y install mongodb-atlas
 #RUN cp mongodb-atlas-cli_1.41.2_linux_x86_64/bin/atlas /usr/local/bin/atlas
 RUN atlas
 
-RUN pip3 install --user -r requirements.txt --target "${LAMBDA_TASK_ROOT}"
-
+RUN pip3 install --user -r requirements.txt
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
 CMD [ "app.lambda_handler" ]
