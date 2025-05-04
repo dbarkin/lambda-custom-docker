@@ -14,7 +14,6 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - ls
-      - cd app
       - docker build -t cf-demo:1 .
       - docker container ls
   post_build:
