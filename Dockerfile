@@ -11,7 +11,7 @@ RUN dnf -y install mongodb-atlas
 #RUN tar -zxvf mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
 #RUN cp mongodb-atlas-cli_1.41.2_linux_x86_64/bin/atlas /usr/local/bin/atlas
 RUN atlas
-RUN locate atlas
+RUN which atlas
 RUN ls -l /usr/local/bin/atlas
 
 
