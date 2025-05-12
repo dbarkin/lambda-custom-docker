@@ -11,6 +11,9 @@ RUN dnf -y install mongodb-atlas
 #RUN tar -zxvf mongodb-atlas-cli_1.41.2_linux_x86_64.tar.gz
 #RUN cp mongodb-atlas-cli_1.41.2_linux_x86_64/bin/atlas /usr/local/bin/atlas
 RUN atlas
+RUN locate atlas
+RUN ls -l /usr/local/bin/atlas
+
 
 RUN pip3 install --user -r requirements.txt
 # Set the CMD to your handler (could also be done as a parameter override outside of the Dockerfile)
