@@ -14,12 +14,12 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...
       - ls
-      - docker build -t cf-demo:1 .
+      - docker build -t cf-demo:latest .
       - docker container ls
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - aws ecr get-login-password --region ca-central-1 | docker login --username AWS --password-stdin 234130772191.dkr.ecr.ca-central-1.amazonaws.com
-      - docker tag cf-demo:1 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:1
-      - docker push 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:1
+      - docker tag cf-demo:latest 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:latest
+      - docker push 234130772191.dkr.ecr.ca-central-1.amazonaws.com/cf-demo:latest
