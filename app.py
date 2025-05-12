@@ -2,7 +2,7 @@ import json
 import boto3
 import os
 
-def handler(event, context):
+def lambda_handler(event, context):
     
     event = json.loads(event['body'])
     print(event, type(event))
